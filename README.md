@@ -14,3 +14,12 @@ solution)</li>
 <li>What your team used to build your solution* (e.g. IBM Cloudant, IBM Cloud
 Functions, etc…)</li>
 </ol>
+
+# To be Removed
+
+## Running sample flask web app that receive random lat and long using socketio
+
+- install dependencies
+`pip install -r .app/requirements.txt`
+- run python script
+`python .app/app.py`
