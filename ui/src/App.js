@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 
+import "./App.scss";
+
+import Map from "./components/Map";
+
 class App extends Component {
   render() {
-    return <h1>Hello World</h1>;
+    return (
+      <div className="container">
+        <Map></Map>
+      </div>
+    );
   }
 }
 
