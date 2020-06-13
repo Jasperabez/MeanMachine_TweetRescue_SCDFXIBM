@@ -1,46 +1,26 @@
 import React from "react";
-import Marker from "../components/Marker";
+import MyMarker from "../components/MyMarker";
 
-var mockLocations = [
-  {
-    lat: 1.310796,
-    lng: 103.778066,
-    name: "Singapore Polytechnic",
-    desc: "Road is blocked",
-  },
-  {
-    lat: 1.361127,
-    lng: 103.92978,
-    name: "Tampines Fire Station",
-    desc: "Fire station got fire",
-  },
-  {
-    lat: 1.373536,
-    lng: 103.752636,
-    name: "Bukit Batok Fire Station",
-    desc: "Fire station got fire",
-  },
-  {
-    lat: 1.264453,
-    lng: 103.822205,
-    name: "Harbour Front",
-    desc: "Got water also got fire",
-  },
-];
+import mockLocations from "./mockLocations";
 
-function loadMockLocations() {
-  return loadLocations(mockLocations);
+function loadMockLocations(onClick) {
+  return loadLocations(mockLocations, onClick);
 }
 
-function loadLocations(locations) {
+function loadLocations(locations, onClick) {
   return locations.map((location) => {
+    var locationPosition = [location.tweetLat, location.tweetLong];
+
+    var image = location.imageUrl[0] || "";
+
     return (
-      <Marker
-        lat={location.lat}
-        lng={location.lng}
-        name={location.name}
-        desc={location.desc}
-      ></Marker>
+      <MyMarker
+        position={locationPosition}
+        time={location.tweetDate}
+        image={image}
+        onClick={onClick}
+        tweet={location}
+      ></MyMarker>
     );
   });
 }

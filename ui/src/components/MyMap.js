@@ -1,7 +1,9 @@
 import React from "react";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import { Map, TileLayer } from "react-leaflet";
 
 import s from "./MyMap.module.scss";
+
+import MyMarker from "./MyMarker";
 
 class MyMap extends React.Component {
   static defaultProps = {
@@ -16,13 +18,7 @@ class MyMap extends React.Component {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Marker position={this.props.position}>
-          <Popup>
-            A pretty CSS3 popup.
-            <br />
-            Easily customizable.
-          </Popup>
-        </Marker>
+        {this.props.children}
       </Map>
     );
   }
