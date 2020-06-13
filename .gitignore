@@ -2,3 +2,6 @@ node_modules
 ref
 .vscode
 debug.log
+.venv
+app/__pycache__
+tweet_q_dump
