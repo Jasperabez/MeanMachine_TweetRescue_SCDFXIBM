@@ -17,10 +17,17 @@ class App extends Component {
       <Layout>
         <NavPanel></NavPanel>
         <MainPanel>
-          <Map>{markerLoader.loadMockLocations()}</Map>
+          {/* <Map>{markerLoader.loadMockLocations()}</Map> */}
           <BigTweet></BigTweet>
         </MainPanel>
-        <TweetListPanel></TweetListPanel>
+        <TweetListPanel>
+          <SmallTweet></SmallTweet>
+          <SmallTweet></SmallTweet>
+          <SmallTweet></SmallTweet>
+          <SmallTweet></SmallTweet>
+          <SmallTweet></SmallTweet>
+          <SmallTweet></SmallTweet>
+        </TweetListPanel>
       </Layout>
     );
   }

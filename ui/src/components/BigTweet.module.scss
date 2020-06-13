@@ -4,6 +4,8 @@
   width: 100%;
   height: 200px;
 
+  z-index: 2;
+
   border-radius: 0 $big-border-radius $big-border-radius 0;
 
   border: 2px solid $primary-colour;
