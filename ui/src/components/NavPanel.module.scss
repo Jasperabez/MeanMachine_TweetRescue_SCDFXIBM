@@ -1,0 +1,106 @@
+@import "../variables";
+
+.navPanel {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  border-radius: 0 32px 32px 0;
+
+  background-color: $primary-colour;
+}
+
+.logoHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 80px;
+
+  .logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .name {
+    font-size: 1em;
+    font-weight: 600;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+  }
+}
+
+.navHolder {
+  width: 100%;
+  position: absolute;
+
+  top: 50%;
+
+  .navLink {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    padding-left: 48px;
+    margin-left: 32px;
+    margin-bottom: 8px;
+    border-radius: 32px 0 0 32px;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $fade-colour;
+      .navName {
+        color: #fff;
+      }
+
+      .navIcon {
+        fill: #fff;
+      }
+    }
+
+    .navIcon {
+      width: 16px;
+      height: 16px;
+      fill: $fade-colour;
+
+      transition: fill 0.3s;
+    }
+    .navName {
+      font-size: 0.8em;
+      margin-left: 16px;
+      font-weight: 600;
+
+      color: $fade-colour;
+
+      transition: color 0.3s;
+    }
+  }
+
+  .navLinkActive {
+    background-color: white;
+
+    &:hover {
+      background-color: white;
+      .navName {
+        color: $fade-colour;
+      }
+
+      .navIcon {
+        fill: $fade-colour;
+      }
+    }
+
+    .navName {
+      color: #000;
+    }
+
+    .navIcon {
+      fill: $primary-colour;
+    }
+  }
+}

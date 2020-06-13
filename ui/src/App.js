@@ -3,15 +3,22 @@ import React, { Component } from "react";
 import markerLoader from "./util/markerLoader";
 
 import "./App.scss";
-
+import Layout from "./components/Layout";
+import NavPanel from "./components/NavPanel";
+import MainPanel from "./components/MainPanel";
 import Map from "./components/Map";
+import BigTweet from "./components/BigTweet";
+import TweetListPanel from "./components/TweetListPanel";
+import SmallTweet from "./components/SmallTweet";
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <Map>{markerLoader.loadMockLocations()}</Map>
-      </div>
+      <Layout>
+        <NavPanel></NavPanel>
+        <MainPanel></MainPanel>
+        <TweetListPanel></TweetListPanel>
+      </Layout>
     );
   }
 }
