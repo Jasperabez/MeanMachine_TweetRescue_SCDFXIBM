@@ -4,16 +4,11 @@ An open-source platform for citizens to report potential or current potential fi
 
 ## What are we trying to solve?
 
-
-
-* 
-*
-*
-*
+While text analysis of social media has been extensively studied, visual information or the posted images has not been utilized for good. These “images” referred to images posted on social media and in our case Twitter. We focused on the image analysis of Twitter images with the hashtags #scdftweetrescue when citizens want to raise an alert that they think is a potential hazard and calls for concern. Especially, posted photos showing fire hazards that include overloading of electrical outlets with too many plugs, obstruct fire exit, and escape passageways, wedging of the fire door open, the use of Electrical or M&E Riser compartments as storage areas and more.
 
 #### Link to detailed proposal:
 
-https://docs.google.com/document/d/1PQAN9EJDBa95DuKuKuXEcoX23Dcr0uwHNw8mf8yS9r4/edit?usp=sharing
+https://drive.google.com/file/d/1TnYb8YWEB54cTOYX41IWwHltIC0xNDSh/view?usp=sharing
 
 ## Watch our pitch!
 
@@ -21,21 +16,11 @@ https://docs.google.com/document/d/1PQAN9EJDBa95DuKuKuXEcoX23Dcr0uwHNw8mf8yS9r4/
 
 ## What's the architecture?
 
-
+In order to screen the social media photos in real-time, several independent modules were developed for the following sub-tasks: web scraping, image analysis, and classification by IBM Watson™ Visual Recognition on IBM cloud. 
 
 ## What's going to happen next?
 
-
-
-## Want to test is out?
-
-<ol>
-<li>Getting started* (Step-by-step instructions to install the required software and how
-to run a demo of your solution)</li>
-</ol>
-
-## How to test it?
-
+Potentially, this can be a supplementary tool for a Fire Safety Manager, obtaining a Fire Certificate (FC) or Temporary Fire Permit (TFP) / Fire Safety Certificate (FSC) that every owner or occupier of any building such as offices, hospitals, shopping complexes, industrial buildings, and private residential buildings have to apply and obtain. While harnessing the community to post potential fire hazards to make building owners continue to pay attention and resources to maintain fire safety standards and requirements in check even after obtaining certificates and doing inspections. 
 
 ## Powered by Cloud?
 
