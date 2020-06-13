@@ -47,7 +47,7 @@ def process_tweet_q_threaded():
         time.sleep(0.5)
         threadLock.acquire()
         for tweet in tweet_queue_copy:
-            if 'processed' not in tweet.keys():
+            if 'processed' not in tweet.keys() and tweet['tweetLat']!=256 and tweet['tweetLong']!=256 and len(tweet['imageUrl']) > 0:
                 print(tweet)
                 tweet['processed'] = True
         threadLock.release()

@@ -1,0 +1,3 @@
+.venv
+app/__pycache__
+tweet_q_dump
