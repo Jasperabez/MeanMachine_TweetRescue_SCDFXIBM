@@ -6,7 +6,7 @@ import "./App.scss";
 import Layout from "./components/Layout";
 import NavPanel from "./components/NavPanel";
 import MainPanel from "./components/MainPanel";
-import Map from "./components/Map";
+import MyMap from "./components/MyMap";
 import BigTweet from "./components/BigTweet";
 import TweetListPanel from "./components/TweetListPanel";
 import SmallTweet from "./components/SmallTweet";
@@ -17,7 +17,7 @@ class App extends Component {
       <Layout>
         <NavPanel></NavPanel>
         <MainPanel>
-          {/* <Map>{markerLoader.loadMockLocations()}</Map> */}
+          <MyMap></MyMap>
           <BigTweet></BigTweet>
         </MainPanel>
         <TweetListPanel>
