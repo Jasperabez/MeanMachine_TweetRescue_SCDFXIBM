@@ -15,7 +15,7 @@ import MainPanel from "./components/MainPanel";
 import BigTweet from "./components/BigTweet";
 import TweetListPanel from "./components/TweetListPanel";
 
-const ENDPOINT = "/";
+const ENDPOINT = "http://localhost:5000";
 const socket = openSocket(ENDPOINT);
 
 const defaultTweet = {
@@ -35,13 +35,14 @@ class App extends Component {
 
     this.state = {
       bigTweet: defaultTweet,
-      tweetList: mockLocations,
+      tweetList: [],
       smallTweetList: [],
       markerList: [],
     };
 
     socket.on("my_response", (msg, cb) => {
-      this.updateTweet(msg);
+      console.log(msg.data);
+      if (msg.data != "Connected") this.updateTweet(msg.data);
     });
   }
 
