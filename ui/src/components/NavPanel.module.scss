@@ -1,0 +1,134 @@
+@import "../variables";
+
+.navPanel {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  border-radius: 0 32px 32px 0;
+
+  background-color: $primary-colour;
+}
+
+.logoHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 80px;
+
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    display: none;
+  }
+}
+
+@media (min-width: $breakpoint-laptop) {
+  .logoHolder {
+    .logo {
+      width: 130px;
+      height: 130px;
+    }
+    .name {
+      display: block;
+    }
+  }
+}
+
+.navHolder {
+  width: 100%;
+  position: absolute;
+
+  top: 50%;
+
+  .navLink {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    padding-left: 16px;
+    margin-left: 16px;
+    margin-bottom: 8px;
+    border-radius: 32px 0 0 32px;
+
+    height: 48px;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $fade-colour;
+      .navName {
+        color: #fff;
+      }
+
+      .navIcon {
+        fill: #fff;
+      }
+    }
+
+    .navIcon {
+      width: 16px;
+      height: 16px;
+      fill: $fade-colour;
+
+      transition: fill 0.3s;
+    }
+    .navName {
+      font-size: 0.8rem;
+      margin-left: 16px;
+      font-weight: 600;
+      display: none;
+
+      color: $fade-colour;
+
+      transition: color 0.3s;
+    }
+  }
+
+  @media (min-width: $breakpoint-laptop) {
+    .navLink {
+      height: auto;
+      padding-left: 48px;
+      margin-left: 32px;
+
+      .navName {
+        display: block;
+      }
+    }
+  }
+
+  .navLinkActive {
+    background-color: white;
+
+    &:hover {
+      background-color: white;
+      .navName {
+        color: $fade-colour;
+      }
+
+      .navIcon {
+        fill: $fade-colour;
+      }
+    }
+
+    .navName {
+      color: #000;
+    }
+
+    .navIcon {
+      fill: $primary-colour;
+    }
+  }
+}

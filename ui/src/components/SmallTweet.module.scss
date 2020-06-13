@@ -1,0 +1,28 @@
+@import "../variables";
+
+.smallTweet {
+  margin-bottom: 8px;
+  width: 100%;
+  padding: 10px;
+  height: 80px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  .tweet {
+    margin: 0;
+    font-size: 0.7rem;
+    flex: 1 1;
+  }
+
+  .timestamp {
+    margin: 0;
+    margin-top: 4px;
+    font-size: 0.7rem;
+    text-align: right;
+    color: $primary-colour;
+  }
+}

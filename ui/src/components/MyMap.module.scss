@@ -1,0 +1,8 @@
+@import "../variables";
+
+.map {
+  width: 100%;
+  margin-bottom: $padding;
+  flex: 1 1;
+  z-index: 2;
+}
