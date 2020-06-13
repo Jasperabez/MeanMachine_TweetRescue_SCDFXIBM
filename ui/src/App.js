@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Map, TileLayer } from "react-leaflet";
 import openSocket from "socket.io-client";
 
 import markerLoader from "./util/markerLoader";
@@ -6,36 +7,24 @@ import smallTweetLoader from "./util/smallTweetLoader";
 import mockLocations from "./util/mockLocations";
 
 import "./App.scss";
+import s from "./components/MyMap.module.scss";
+
 import Layout from "./components/Layout";
 import NavPanel from "./components/NavPanel";
 import MainPanel from "./components/MainPanel";
-import MyMap from "./components/MyMap";
 import BigTweet from "./components/BigTweet";
 import TweetListPanel from "./components/TweetListPanel";
 
-const ENDPOINT = "http://138.75.49.118:3797";
-// const socket = openSocket(ENDPOINT);
+const ENDPOINT = "/";
+const socket = openSocket(ENDPOINT);
 
 const defaultTweet = {
   tweetId: "1271771728520155136",
   tweetUrl: "https://twitter.com/JabezTho/status/1271771728520155136",
-  imageUrl: ["https://pbs.twimg.com/media/EaY9pHpVcAE6f_e.jpg"],
+  imageUrl: [""],
   tweetUsername: "JabezTho",
-  tweetText: "#scdftweetrescue\n\nLocation : Singapore Polytechnic ",
-  tweetDate: "2020-06-13 19:49:43",
-  tweetLat: 1.357136,
-  tweetLong: 103.824106,
-};
-
-const newTweet = {
-  tweetId: "1271771728520155136",
-  tweetUrl: "https://twitter.com/JabezTho/status/1271771728520155136",
-  imageUrl: [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Buona_Vista_MRT_Station_with_New_Signage.jpg/220px-Buona_Vista_MRT_Station_with_New_Signage.jpg",
-  ],
-  tweetUsername: "JabezTho",
-  tweetText: "PLEASE SHOW UP",
-  tweetDate: "2020-06-13 19:49:43",
+  tweetText: "Click on a marker to show more details",
+  tweetDate: "",
   tweetLat: 1.357136,
   tweetLong: 103.824106,
 };
@@ -46,20 +35,14 @@ class App extends Component {
 
     this.state = {
       bigTweet: defaultTweet,
-      tweetList: [],
+      tweetList: mockLocations,
       smallTweetList: [],
       markerList: [],
     };
 
-    var count = 0;
-    setInterval(() => {
-      this.updateTweet(mockLocations[count]);
-      if (count !== mockLocations.length - 1) count++;
-    }, 1000);
-
-    // socket.on("my_response", (msg, cb) => {
-    //   this.updateTweet(msg);
-    // });
+    socket.on("my_response", (msg, cb) => {
+      this.updateTweet(msg);
+    });
   }
 
   updateTweet = (tweet) => {
@@ -68,17 +51,7 @@ class App extends Component {
     var tweetList = this.state.tweetList;
     tweetList.push(tweet);
 
-    const newSmallTweet = smallTweetLoader.loadSmallTweet(tweet);
-    var newSmallTweetList = this.state.smallTweetList;
-    newSmallTweetList.push(newSmallTweet);
-
-    const newMarker = markerLoader.loadLocation(tweet, this.setBigTweet);
-    var newMarkerList = this.state.markerList;
-    newMarkerList.push(newMarker);
-
     this.setState({
-      smallTweetList: newSmallTweetList,
-      markerList: newMarkerList,
       tweetList: tweetList,
     });
   };
@@ -89,15 +62,28 @@ class App extends Component {
     });
   };
 
+  static defaultProps = {
+    position: [1.355858, 103.814679],
+    zoom: 11.8,
+  };
+
   render() {
     return (
       <Layout>
         <NavPanel></NavPanel>
         <MainPanel>
-          <MyMap>{this.state.markerList}</MyMap>
+          <Map center={this.props.position} zoom={11} className={s.map}>
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            />
+            {markerLoader.loadLocations(this.state.tweetList, this.setBigTweet)}
+          </Map>
           <BigTweet tweet={this.state.bigTweet}></BigTweet>
         </MainPanel>
-        <TweetListPanel>{this.state.smallTweetList}</TweetListPanel>
+        <TweetListPanel>
+          {smallTweetLoader.loadSmallTweets(this.state.tweetList)}
+        </TweetListPanel>
       </Layout>
     );
   }
