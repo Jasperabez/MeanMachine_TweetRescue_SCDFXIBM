@@ -38,7 +38,7 @@ Thanks to the following wizards who have contributed to this project:
 * [@hanscau](https://github.com/hanscau) 🐛
 * [@weijuinlee](https://github.com/weijinlee) 🐛
 
-We are a team of three passionate programeer namely Jabez Tho, Hans Delano,Lee Wei Juin 
+We are a team of three passionate programeers namely Jabez Tho, Hans Delano, Lee Wei Juin from Singapore Polytechnic who want to apply software engineering for good! We believe in programming good practices where it is first, understand; second, do. Follow them and you will literally and figuratively be on your way to the top!
 
 # To be Removed
 
