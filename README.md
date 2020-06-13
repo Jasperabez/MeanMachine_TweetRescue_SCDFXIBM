@@ -4,7 +4,7 @@ An open-source platform for citizens to report potential or current potential fi
 
 ## What are we trying to solve?
 
----
+
 
 * 
 *
@@ -17,19 +17,18 @@ https://docs.google.com/document/d/1PQAN9EJDBa95DuKuKuXEcoX23Dcr0uwHNw8mf8yS9r4/
 
 ## Watch our pitch!
 
----
+
 
 ## What's the architecture?
 
----
+
 
 ## What's going to happen next?
 
----
+
 
 ## Want to test is out?
 
----
 <ol>
 <li>Getting started* (Step-by-step instructions to install the required software and how
 to run a demo of your solution)</li>
@@ -37,7 +36,6 @@ to run a demo of your solution)</li>
 
 ## How to test it?
 
----
 
 ## Powered by Cloud?
 
@@ -49,7 +47,6 @@ https://www.ibm.com/sg-en/cloud/watson-visual-recognition
 
 ## Contributors
 
----
 Thanks to the following wizards who have contributed to this project:
 
 * [@Jasperabez](https://github.com/Jasperabez) 📖
