@@ -3,8 +3,6 @@ import { Map, TileLayer } from "react-leaflet";
 
 import s from "./MyMap.module.scss";
 
-import MyMarker from "./MyMarker";
-
 class MyMap extends React.Component {
   static defaultProps = {
     position: [1.355858, 103.814679],
