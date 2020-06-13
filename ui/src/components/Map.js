@@ -1,6 +1,8 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 
+import s from "./Map.module.scss";
+
 class Map extends React.Component {
   static defaultProps = {
     center: {
@@ -12,7 +14,7 @@ class Map extends React.Component {
 
   render() {
     return (
-      <div style={{ height: "100%", width: "100%" }}>
+      <div className={s.map}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyDjszZAHFsBliasnxU1_KjJ3xlgEBulozg" }}
           defaultCenter={this.props.center}

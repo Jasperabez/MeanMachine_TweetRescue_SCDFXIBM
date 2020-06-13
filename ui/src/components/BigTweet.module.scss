@@ -1,0 +1,50 @@
+@import "../variables";
+
+.bigTweet {
+  width: 100%;
+  height: 200px;
+
+  border-radius: 0 $big-border-radius $big-border-radius 0;
+
+  border: 2px solid $primary-colour;
+  display: flex;
+  .image {
+    height: 100%;
+  }
+
+  .tweetHolder {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+
+    .tweet {
+      font-size: 1.2em;
+      flex: 1 1;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .metadataHolder {
+      display: flex;
+      align-items: center;
+
+      .locationIcon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .calendarIcon {
+        width: 16px;
+        height: 16px;
+        margin-left: 32px;
+      }
+
+      .metadata {
+        color: $primary-colour;
+        margin-left: 8px;
+        font-size: 1em;
+      }
+    }
+  }
+}

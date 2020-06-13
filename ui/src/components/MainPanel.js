@@ -4,7 +4,7 @@ import s from "./MainPanel.module.scss";
 
 class MainPanel extends Component {
   render() {
-    return <div className={s.mainPanel}></div>;
+    return <div className={s.mainPanel}>{this.props.children}</div>;
   }
 }
 
