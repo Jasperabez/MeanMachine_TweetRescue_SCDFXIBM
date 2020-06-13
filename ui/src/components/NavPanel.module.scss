@@ -23,15 +23,28 @@
   margin-top: 80px;
 
   .logo {
-    width: 130px;
-    height: 130px;
+    width: 70px;
+    height: 70px;
   }
 
   .name {
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 600;
     color: white;
     font-family: "Open Sans", sans-serif;
+    display: none;
+  }
+}
+
+@media (min-width: $breakpoint-laptop) {
+  .logoHolder {
+    .logo {
+      width: 130px;
+      height: 130px;
+    }
+    .name {
+      display: block;
+    }
   }
 }
 
@@ -45,10 +58,12 @@
     display: flex;
     align-items: center;
     padding: 4px;
-    padding-left: 48px;
-    margin-left: 32px;
+    padding-left: 16px;
+    margin-left: 16px;
     margin-bottom: 8px;
     border-radius: 32px 0 0 32px;
+
+    height: 48px;
 
     transition: background-color 0.3s;
 
@@ -71,13 +86,26 @@
       transition: fill 0.3s;
     }
     .navName {
-      font-size: 0.8em;
+      font-size: 0.8rem;
       margin-left: 16px;
       font-weight: 600;
+      display: none;
 
       color: $fade-colour;
 
       transition: color 0.3s;
+    }
+  }
+
+  @media (min-width: $breakpoint-laptop) {
+    .navLink {
+      height: auto;
+      padding-left: 48px;
+      margin-left: 32px;
+
+      .navName {
+        display: block;
+      }
     }
   }
 

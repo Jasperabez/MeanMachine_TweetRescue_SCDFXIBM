@@ -2,7 +2,8 @@
 
 .bigTweet {
   width: 100%;
-  height: 200px;
+  height: 13vw;
+  max-height: 200px;
 
   z-index: 2;
 
@@ -20,11 +21,13 @@
     flex-direction: column;
 
     .tweet {
-      font-size: 1.2em;
+      font-size: 1.2rem;
       flex: 1 1;
       margin: 0;
       display: flex;
       align-items: center;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
     }
 
     .metadataHolder {
@@ -45,8 +48,14 @@
       .metadata {
         color: $primary-colour;
         margin-left: 8px;
-        font-size: 1em;
+        font-size: 0.8rem;
       }
     }
+  }
+}
+
+@media (min-width: $breakpoint-laptop) {
+  .bigTweet {
+    width: 100%;
   }
 }

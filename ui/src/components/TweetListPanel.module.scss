@@ -10,9 +10,10 @@
   align-items: center;
 
   .searchBar {
-    width: 70%;
+    width: 90%;
     padding: 8px;
     padding-left: 36px;
+    box-sizing: border-box;
     margin-bottom: 32px;
     border: none;
     outline: none;
@@ -26,7 +27,8 @@
   .tweetHolder {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
+    padding: 0 16px;
     height: 100%;
     overflow: auto;
     box-sizing: border-box;
