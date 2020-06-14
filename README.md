@@ -46,6 +46,13 @@ We are a team of three passionate programeers namely Jabez Tho, Hans Delano, Lee
 
 `git clone https://github.com/Jasperabez/MeanMachine_TweetRescue_SCDFXIBM`
 
+## Build react app
+- Go to ui directory
+- install npm dependencies
+`npm install`
+- build project
+`npm run build`
+
 ## Flask server
 - install dependencies (recommnended using virtualenv)
 
@@ -54,12 +61,7 @@ We are a team of three passionate programeers namely Jabez Tho, Hans Delano, Lee
 
 `python .app/app.py`
 
-## Build react app
-- Go to ui directory
-- install npm dependencies
-`npm install`
-- build project
-`npm run build`
+## Your webapp is live!!
 
 # Global deployment (to the internet!!)
 ## do some steps before following local development guide
