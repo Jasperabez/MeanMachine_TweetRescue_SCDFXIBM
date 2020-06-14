@@ -53,6 +53,22 @@ We are a team of three passionate programeers namely Jabez Tho, Hans Delano, Lee
 - build project
 `npm run build`
 
+## Configuring IBM Watson Visual Recognition
+- train a image model on IBM Watson Visual Recognition
+- create a new file app/secret.py with the following lines
+```python
+WATSON_API_KEY = '<your api key>'
+WATSON_URL_ENDPOINT = '<your endpoint>'
+```
+- change the collection id in app/ibm_visual.py
+```python
+results = visual_recognition.analyze(
+            collection_ids=["<your collection id>"],
+            features=['objects'],
+            image_url=image_url
+            ).get_result()
+```
+
 ## Flask server
 - install dependencies (recommnended using virtualenv)
 
