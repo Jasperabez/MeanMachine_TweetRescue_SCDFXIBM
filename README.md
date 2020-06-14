@@ -18,6 +18,8 @@ https://www.youtube.com/embed/oS3I6Ph7ywo
 
 In order to screen the social media photos in real-time, several independent modules were developed for the following sub-tasks: web scraping, image analysis, and classification by IBM Watson™ Visual Recognition on IBM cloud. 
 
+Our Dashboard is built with a hybrid of react and flask framework and could be immediately deployable to a compatible server (local/cloud).
+
 ## What's going to happen next?
 
 Potentially, this can be a supplementary tool for a Fire Safety Manager, obtaining a Fire Certificate (FC) or Temporary Fire Permit (TFP) / Fire Safety Certificate (FSC) that every owner or occupier of any building such as offices, hospitals, shopping complexes, industrial buildings, and private residential buildings have to apply and obtain. While harnessing the community to post potential fire hazards to make building owners continue to pay attention and resources to maintain fire safety standards and requirements in check even after obtaining certificates and doing inspections. 
@@ -91,7 +93,20 @@ acceptableFeatures = {'Hose':0.6,
 
 `python .app/app.py`
 
-## Your webapp is live!!
+## Your webapp is live start tweeting!!
+
+### tweet have to follow the following standard:
+- include the hashtag #scdftweetrescue
+- include location in the following format
+
+`Location: <Your Address!>`
+- attach a picture of the scene
+
+Example:
+
+![image](example.png)
+**IMPORTANT: tweet wouldn't be display if format not followed or address is invalid**
+
 
 # Global deployment (to the internet!!)
 ## do some steps before following local development guide
