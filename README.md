@@ -12,11 +12,11 @@ https://drive.google.com/file/d/1TnYb8YWEB54cTOYX41IWwHltIC0xNDSh/view?usp=shari
 
 ## Watch our pitch!
 
-<iframe width="1216" height="684" src="https://www.youtube.com/embed/oS3I6Ph7ywo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[[![alt text](http://img.youtube.com/embed/oS3I6Ph7ywo/0.jpg)](https://www.youtube.com/embed/oS3I6Ph7ywo "title")
+
+#### Link to pitch:
 
 https://www.youtube.com/embed/oS3I6Ph7ywo
-
-[[![alt text](http://img.youtube.com/vi/H4Yo7XGbGSM/0.jpg)](https://www.youtube.com/watch?v=H4Yo7XGbGSM "title")
 
 ## What's the architecture?
 
