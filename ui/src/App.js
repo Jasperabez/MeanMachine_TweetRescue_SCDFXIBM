@@ -28,7 +28,7 @@ const defaultTweet = {
   imageUrl: [""],
   tweetUsername: "JabezTho",
   tweetText: "Click on a marker to show more details",
-  tweetDate: "DATE WILL BE SHOWN HERE",
+  tweetDate: "Date will be shown here",
   tweetLat: 1.357136,
   tweetLong: 103.824106,
 };

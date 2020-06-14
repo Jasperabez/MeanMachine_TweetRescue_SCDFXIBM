@@ -1,7 +1,7 @@
 import React from "react";
 
 const locationTag = "LOCATION:";
-const noLocationMsg = "LOCATION WILL BE SHOWN HERE";
+const noLocationMsg = "Location will be shown here";
 
 const hashtag = "#scdftweetrescue";
 const highlightedHashtag = (
