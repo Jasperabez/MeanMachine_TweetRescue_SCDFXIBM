@@ -7,7 +7,11 @@ class Overlay extends Component {
     var overlayDisplay = this.props.isDisplay ? "block" : "none";
 
     return (
-      <div style={{ display: overlayDisplay }} className={s.overlay}></div>
+      <div
+        style={{ display: overlayDisplay }}
+        className={s.overlay}
+        onClick={this.props.onClick}
+      ></div>
     );
   }
 }

@@ -28,7 +28,7 @@ const defaultTweet = {
   imageUrl: [""],
   tweetUsername: "JabezTho",
   tweetText: "Click on a marker to show more details",
-  tweetDate: "",
+  tweetDate: "DATE WILL BE SHOWN HERE",
   tweetLat: 1.357136,
   tweetLong: 103.824106,
 };
@@ -75,6 +75,12 @@ class App extends Component {
   showRectify = () => {
     this.setState({
       isRectify: true,
+    });
+  };
+
+  closeRectify = () => {
+    this.setState({
+      isRectify: false,
     });
   };
 
@@ -125,7 +131,10 @@ class App extends Component {
         <TweetListPanel>
           {smallTweetLoader.loadSmallTweets(this.state.tweetList)}
         </TweetListPanel>
-        <Overlay isDisplay={this.state.isRectify}></Overlay>
+        <Overlay
+          isDisplay={this.state.isRectify}
+          onClick={this.closeRectify}
+        ></Overlay>
       </Layout>
     );
   }
