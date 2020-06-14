@@ -68,6 +68,20 @@ results = visual_recognition.analyze(
             image_url=image_url
             ).get_result()
 ```
+- add the newly trained features into allowed features (allowed to show on dashboard)
+
+app/app.py 
+
+`Line 32`
+```python
+acceptableFeatures = {'Hose':0.6}
+```
+replace or append with
+```python
+acceptableFeatures = {'Hose':0.6, 
+'<new feature>':<min confident socre>}
+```
+
 
 ## Flask server
 - install dependencies (recommnended using virtualenv)
