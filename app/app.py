@@ -36,7 +36,6 @@ try:
 except: 
     tweet_queue = []
 print("tweet queue loaded")
-tweet_queue_copy = tweet_queue
 
 class myThread (threading.Thread):
    def __init__(self, threadID, name, att_func):
@@ -48,24 +47,20 @@ class myThread (threading.Thread):
        print("Starting "+ self.name) 
        self.att_func()
 
+def sendTweetPayLoadSoc(tweet):
+    if tweet['tweetLat']!=256 and tweet['tweetLong']!=256 and len(tweet['imageUrl']) > 0:
+            print(tweet)
+            socketio.emit('my_response',
+                            {'data': tweet},
+                            namespace='')
+
 # send random lat long every now and then
 def background_thread():
     """Example of how to send server generated events to clients."""
-    while True:
-        socketio.sleep(0.5)
-        thread_lock.acquire()
-        for tweet in tweet_queue_copy:
-            if 'processed' not in tweet.keys() and tweet['tweetLat']!=256 and tweet['tweetLong']!=256 and len(tweet['imageUrl']) > 0:
-                print(tweet)
-                socketio.emit('my_response',
-                                {'data': tweet},
-                                namespace='')
-                tweet['processed'] = True
-        
-        # socketio.emit('my_response',
-        #               {'topic': 'location','data': {'lat':str(uniform(-90,90)), 'long':str(uniform(-180,180))}},
-        #               namespace='')
-        thread_lock.release()
+    thread_lock.acquire()
+    for tweet in tweet_queue:
+        sendTweetPayLoadSoc(tweet)
+    thread_lock.release()
 
 def tweet_poll_safe():
     for tweet in tweet_queue:
@@ -84,9 +79,9 @@ def tweet_poll_safe():
                  'imageUrl':tweet['entries']['photos'],'tweetUsername':tweet['username'],'tweetText':tweetText,
                  'tweetDate':tweet['time'].strftime("%Y-%m-%d %H:%M:%S"), 'tweetLat':tweetLat, 'tweetLong':tweetLong}
                 tweet_queue.append(tweetProcessed)
-                tweet_queue_copy.append(tweetProcessed)
+                sendTweetPayLoadSoc(tweetProcessed)
                 tweet_queue_ids.append(tweet['tweetId'])
-        # pickle.dump(tweet_queue,open( tweet_q_dump_file, "wb" ))
+        pickle.dump(tweet_queue,open( tweet_q_dump_file, "wb" ))
         
         thread_lock.release()
 
@@ -134,9 +129,10 @@ def disconnect_request():
 
 @socketio.on('connect', namespace='')
 def test_connect():
-    global thread
-    if thread is None:
-        thread = socketio.start_background_task(background_thread)
+    # global thread
+    # if thread is None:
+    #     thread = socketio.start_background_task(background_thread)
+    background_thread()
     emit('my_response', {'data': 'Connected', 'count': 0})
 
 
