@@ -45,4 +45,4 @@ w3lib==1.22.0
 watson-developer-cloud==2.10.1
 websocket-client==0.48.0
 websockets==8.1
-Werkzeug==0.14.1
+Werkzeug==0.15.3
