@@ -10,11 +10,7 @@ While text analysis of social media has been extensively studied, visual informa
 
 https://drive.google.com/file/d/1TnYb8YWEB54cTOYX41IWwHltIC0xNDSh/view?usp=sharing
 
-## Watch our pitch!
-
-[[![alt text](http://img.youtube.com/embed/oS3I6Ph7ywo/0.jpg)](https://www.youtube.com/embed/oS3I6Ph7ywo "title")
-
-#### Link to pitch:
+## Link to pitch:
 
 https://www.youtube.com/embed/oS3I6Ph7ywo
 
