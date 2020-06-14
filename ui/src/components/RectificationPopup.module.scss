@@ -1,0 +1,94 @@
+@import "../variables";
+
+.popup {
+  position: absolute;
+  width: calc(100% - 64px);
+  height: calc(100% - 13vw - 200px);
+  background-color: #fff;
+  border-radius: 32px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  border: 2px solid $primary-colour;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 5;
+
+  .title {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .inputHolder {
+    display: flex;
+    height: calc(100% - 80px);
+    flex: 1 1;
+
+    .msgLabel {
+      display: flex;
+      flex: 1 1;
+      flex-direction: column;
+      font-size: 0.8rem;
+      margin: 0 8px;
+      color: $primary-colour;
+    }
+
+    .imageLabel {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8rem;
+      margin: 0 8px;
+      color: $primary-colour;
+    }
+
+    .image {
+      margin-top: 8px;
+      height: 75%;
+      object-fit: contain;
+    }
+
+    .rectificationMsg {
+      margin-top: 8px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    .rectificationInput {
+      margin-top: 8px;
+    }
+  }
+
+  .rectificationBtn {
+    justify-self: flex-end;
+    width: 100px;
+    height: 32px;
+    margin-top: 8px;
+
+    align-self: flex-end;
+    display: block;
+    border-radius: 16px;
+
+    background-color: $button-colour;
+    outline: none;
+    border: none;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $button-hover;
+    }
+
+    &:active {
+      background-color: $button-active;
+    }
+  }
+}

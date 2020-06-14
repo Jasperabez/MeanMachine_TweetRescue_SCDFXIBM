@@ -1,7 +1,10 @@
 @import "../variables";
 
 .popupImage {
-  width: 100%;
+  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
 }
 
 .popupTime {
@@ -10,4 +13,25 @@
   text-align: center;
   margin: 0;
   padding: 0;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  background-color: $button-colour;
+  border: none;
+  outline: none;
+
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $button-hover;
+  }
+
+  &:active {
+    background-color: $button-active;
+  }
 }

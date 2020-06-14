@@ -12,11 +12,15 @@ import s from "./components/MyMap.module.scss";
 import Layout from "./components/Layout";
 import NavPanel from "./components/NavPanel";
 import MainPanel from "./components/MainPanel";
+import RectificationPopup from "./components/RectificationPopup";
 import BigTweet from "./components/BigTweet";
 import TweetListPanel from "./components/TweetListPanel";
+import Overlay from "./components/Overlay";
 
 const ENDPOINT = "http://localhost:5000";
 const socket = openSocket(ENDPOINT);
+
+const isDebugging = true;
 
 const defaultTweet = {
   tweetId: "1271771728520155136",
@@ -33,17 +37,22 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    var locationIni = isDebugging ? mockLocations : [];
+
     this.state = {
       bigTweet: defaultTweet,
-      tweetList: [],
+      tweetList: locationIni,
       smallTweetList: [],
       markerList: [],
+      isRectify: false,
     };
 
-    socket.on("my_response", (msg, cb) => {
-      console.log(msg.data);
-      if (msg.data != "Connected") this.updateTweet(msg.data);
-    });
+    if (!isDebugging) {
+      socket.on("my_response", (msg, cb) => {
+        console.log(msg.data);
+        if (msg.data != "Connected") this.updateTweet(msg.data);
+      });
+    }
   }
 
   updateTweet = (tweet) => {
@@ -63,6 +72,29 @@ class App extends Component {
     });
   };
 
+  showRectify = () => {
+    this.setState({
+      isRectify: true,
+    });
+  };
+
+  doneRectify = () => {
+    console.log("Problem rectified");
+
+    var rectifiedTweet = this.state.bigTweet;
+    var currentTweetList = this.state.tweetList;
+
+    var newTweetList = currentTweetList.filter((tweet) => {
+      return tweet.tweetId !== rectifiedTweet.tweetId;
+    });
+
+    this.setState({
+      isRectify: false,
+      tweetList: newTweetList,
+      bigTweet: defaultTweet,
+    });
+  };
+
   static defaultProps = {
     position: [1.355858, 103.814679],
     zoom: 11.8,
@@ -73,18 +105,27 @@ class App extends Component {
       <Layout>
         <NavPanel></NavPanel>
         <MainPanel>
+          <RectificationPopup
+            isDisplay={this.state.isRectify}
+            onClick={this.doneRectify}
+          ></RectificationPopup>
           <Map center={this.props.position} zoom={11} className={s.map}>
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
-            {markerLoader.loadLocations(this.state.tweetList, this.setBigTweet)}
+            {markerLoader.loadLocations(
+              this.state.tweetList,
+              this.setBigTweet,
+              this.showRectify
+            )}
           </Map>
           <BigTweet tweet={this.state.bigTweet}></BigTweet>
         </MainPanel>
         <TweetListPanel>
           {smallTweetLoader.loadSmallTweets(this.state.tweetList)}
         </TweetListPanel>
+        <Overlay isDisplay={this.state.isRectify}></Overlay>
       </Layout>
     );
   }

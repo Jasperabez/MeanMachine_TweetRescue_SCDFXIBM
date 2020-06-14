@@ -2,6 +2,7 @@ let mockLocations;
 
 export default mockLocations = [
   {
+    tweetId: "12271771728520155136",
     tweetLat: 1.310796,
     tweetLong: 103.778066,
     tweetUsername: "Singapore Polytechnic",
@@ -10,6 +11,7 @@ export default mockLocations = [
     tweetDate: "13/6/2020 8:38pm",
   },
   {
+    tweetId: "12717717285203455136",
     tweetLat: 1.361127,
     tweetLong: 103.92978,
     tweetUsername: "Tampines Fire Station",
@@ -18,6 +20,7 @@ export default mockLocations = [
     tweetDate: "13/6/2020 8:38pm",
   },
   {
+    tweetId: "1271723728520155136",
     tweetLat: 1.373536,
     tweetLong: 103.752636,
     tweetUsername: "Bukit Batok Fire Station",
@@ -26,6 +29,7 @@ export default mockLocations = [
     tweetDate: "13/6/2020 8:38pm",
   },
   {
+    tweetId: "12717717285201556136",
     tweetLat: 1.264453,
     tweetLong: 103.822205,
     tweetUsername: "Harbour Front",

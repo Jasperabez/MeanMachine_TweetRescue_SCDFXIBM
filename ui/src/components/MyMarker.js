@@ -22,8 +22,13 @@ class MyMarker extends React.Component {
             this.props.onClick(this.props.tweet);
           }}
         >
-          <img src={this.props.image} alt="" className={s.popupImage} />
-          <p className={s.popupTime}>{this.props.time}</p>
+          <div className={s.popupInfoHolder}>
+            <p className={s.popupTime}>{this.props.time}</p>
+            <img src={this.props.image} alt="" className={s.popupImage} />
+            <button className={s.button} onClick={this.props.rectifyOnClick}>
+              Rectify
+            </button>
+          </div>
         </Popup>
       </Marker>
     );

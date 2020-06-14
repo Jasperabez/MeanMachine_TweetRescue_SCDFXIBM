@@ -3,11 +3,11 @@ import MyMarker from "../components/MyMarker";
 
 import mockLocations from "./mockLocations";
 
-function loadMockLocations(onClick) {
-  return loadLocations(mockLocations, onClick);
+function loadMockLocations(onClick, rectifyOnClick) {
+  return loadLocations(mockLocations, onClick, rectifyOnClick);
 }
 
-function loadLocation(location, onClick) {
+function loadLocation(location, onClick, rectifyOnClick) {
   var locationPosition = [location.tweetLat, location.tweetLong];
 
   var image = location.imageUrl[0] || "";
@@ -18,14 +18,15 @@ function loadLocation(location, onClick) {
       time={location.tweetDate}
       image={image}
       onClick={onClick}
+      rectifyOnClick={rectifyOnClick}
       tweet={location}
     ></MyMarker>
   );
 }
 
-function loadLocations(locations, onClick) {
+function loadLocations(locations, onClick, rectifyOnClick) {
   return locations.map((location) => {
-    return loadLocation(location, onClick);
+    return loadLocation(location, onClick, rectifyOnClick);
   });
 }
 
