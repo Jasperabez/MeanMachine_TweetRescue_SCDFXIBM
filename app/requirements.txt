@@ -17,6 +17,8 @@ Flask-SocketIO==4.3.0
 future==0.18.2
 geographiclib==1.50
 geopy==1.22.0
+ibm-cloud-sdk-core==1.5.1
+ibm-watson==4.5.0
 idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.10
@@ -25,8 +27,10 @@ MarkupSafe==1.1.0
 MechanicalSoup==0.12.0
 parse==1.15.0
 pyee==7.0.2
+PyJWT==1.7.1
 pyppeteer==0.2.2
 pyquery==1.4.1
+python-dateutil==2.8.1
 python-engineio==3.13.0
 python-socketio==4.6.0
 ratelim==0.1.6
@@ -38,5 +42,7 @@ tqdm==4.46.1
 twitter-scraper==0.4.2
 urllib3==1.25.9
 w3lib==1.22.0
+watson-developer-cloud==2.10.1
+websocket-client==0.48.0
 websockets==8.1
 Werkzeug==0.14.1
