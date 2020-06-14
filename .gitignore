@@ -5,3 +5,6 @@ debug.log
 .venv
 app/__pycache__
 tweet_q_dump
+app/secret.py
+Test_Images.zip
+Firehose

@@ -13,6 +13,7 @@ import time
 import pickle
 import re
 import location_regex
+import ibm_visual
 from flask_cors import CORS
 # Set this variable to "threading", "eventlet" or "gevent" to the
 # different async modes, or leave it set to None for the application to choose
@@ -28,6 +29,7 @@ thread = None
 thread_lock = Lock()
 tweet_q_dump_file = 'tweet_q_dump'
 tweet_queue_ids = []
+acceptableFeatures = {'Hose':0.8}
 
 print("Hi")
 
@@ -49,12 +51,15 @@ class myThread (threading.Thread):
 
 def sendTweetPayLoadSoc(tweet):
     if tweet['tweetLat']!=256 and tweet['tweetLong']!=256 and len(tweet['imageUrl']) > 0:
-            print(tweet)
-            socketio.emit('my_response',
-                            {'data': tweet},
-                            namespace='')
+        for feature in tweet['features']:
+            if feature['object'] in acceptableFeatures:
+                if feature['score'] > acceptableFeatures[feature['object']]:
+                    print(tweet)
+                    socketio.emit('my_response',
+                                    {'data': tweet},
+                                    broadcast=False,
+                                    namespace='')
 
-# send random lat long every now and then
 def background_thread():
     """Example of how to send server generated events to clients."""
     thread_lock.acquire()
@@ -68,8 +73,8 @@ def tweet_poll_safe():
     while True:
         time.sleep(10)
         thread_lock.acquire()
-
-        for tweet in get_tweets('#scdftweetrescue', pages=1):
+        fetched_tweets = get_tweets('#scdftweetrescue', pages=1)
+        for tweet in fetched_tweets:
             if tweet['tweetId'] not in tweet_queue_ids:
                 tweetText = re.sub(r"[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)",'',tweet['text'])
                 tweetText.strip()
@@ -77,7 +82,7 @@ def tweet_poll_safe():
                 tweetLat, tweetLong = geocoder.get_coordinates(tweetLocation)
                 tweetProcessed = {'tweetId': tweet['tweetId'], 'tweetUrl': "https://twitter.com" +tweet['tweetUrl'],
                  'imageUrl':tweet['entries']['photos'],'tweetUsername':tweet['username'],'tweetText':tweetText,
-                 'tweetDate':tweet['time'].strftime("%Y-%m-%d %H:%M:%S"), 'tweetLat':tweetLat, 'tweetLong':tweetLong}
+                 'tweetDate':tweet['time'].strftime("%Y-%m-%d %H:%M:%S"), 'tweetLat':tweetLat, 'tweetLong':tweetLong, 'features':ibm_visual.getObjects(tweet['entries']['photos'])}
                 tweet_queue.append(tweetProcessed)
                 sendTweetPayLoadSoc(tweetProcessed)
                 tweet_queue_ids.append(tweet['tweetId'])
@@ -142,4 +147,4 @@ def disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, host='localhost')
+    socketio.run(app, debug=True, host='0.0.0.0')
