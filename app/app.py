@@ -29,7 +29,7 @@ thread = None
 thread_lock = Lock()
 tweet_q_dump_file = 'tweet_q_dump'
 tweet_queue_ids = []
-acceptableFeatures = {'Hose':0.8}
+acceptableFeatures = {'Hose':0.6}
 
 print("Hi")
 
