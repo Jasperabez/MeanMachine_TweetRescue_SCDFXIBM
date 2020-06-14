@@ -20,7 +20,7 @@ import Overlay from "./components/Overlay";
 const ENDPOINT = "http://localhost:5000";
 const socket = openSocket(ENDPOINT);
 
-const isDebugging = true;
+const isDebugging = false;
 
 const defaultTweet = {
   tweetId: "1271771728520155136",
