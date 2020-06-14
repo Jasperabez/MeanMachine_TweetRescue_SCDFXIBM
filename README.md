@@ -40,11 +40,37 @@ Thanks to the following wizards who have contributed to this project:
 
 We are a team of three passionate programeers namely Jabez Tho, Hans Delano, Lee Wei Juin from Singapore Polytechnic who want to apply software engineering for good! We believe in programming good practices where it is first, understand; second, do. Follow them and you will literally and figuratively be on your way to the top!
 
-# To be Removed
+# Local Deployment
 
-## Running sample flask web app that receive random lat and long using socketio
+- Clone this repo!!
 
-- install dependencies
+`git clone https://github.com/Jasperabez/MeanMachine_TweetRescue_SCDFXIBM`
+
+## Flask server
+- install dependencies (recommnended using virtualenv)
+
 `pip install -r .app/requirements.txt`
 - run python script
+
 `python .app/app.py`
+
+## Build react app
+- Go to ui directory
+- install npm dependencies
+`npm install`
+- build project
+`npm run build`
+
+# Global deployment (to the internet!!)
+## do some steps before following local development guide
+
+- replace "localhost:5000" in ui/src/App.js and package.json with your public ip and port
+- change the following line in app/app.py
+
+from 
+
+`    socketio.run(app, debug=True, host='localhost')`
+
+to
+
+`    socketio.run(app, debug=True, host='0.0.0.0')`
