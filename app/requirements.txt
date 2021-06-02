@@ -40,7 +40,7 @@ six==1.11.0
 soupsieve==2.0.1
 tqdm==4.46.1
 twitter-scraper==0.4.2
-urllib3==1.25.9
+urllib3==1.26.5
 w3lib==1.22.0
 watson-developer-cloud==2.10.1
 websocket-client==0.48.0
